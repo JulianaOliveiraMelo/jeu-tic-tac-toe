@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.scss';
+import { FaArrowRight } from 'react-icons/fa';
 
 function calculateWinner(squares) {
 	const lines = [
@@ -24,7 +25,9 @@ function calculateWinner(squares) {
 
 function Square(props) {
 	return (
-		<button className='square' onClick={props.onClick}>
+		<button
+			className={`square ${props.value === 'X' ? 'playerOne' : 'playerTwo'}`}
+			onClick={props.onClick}>
 			{props.value}
 		</button>
 	);
@@ -108,16 +111,18 @@ class Game extends React.Component {
 		const winner = calculateWinner(current.squares);
 
 		const moves = history.map((step, move) => {
-			const desc = move
-				? 'Revenir au tour n°' + move
-				: 'Revenir au début de la partie';
+			const desc = move ? 'Revenir au tour n°' + move : 'Recommencer la partie';
 			return (
 				<li key={move}>
 					<button
 						onClick={() => {
 							this.jumpTo(move);
 						}}>
-						{desc}
+						<span className='left'>
+							<FaArrowRight /> <span className='arrow-left'></span>
+						</span>
+
+						<span className='title'>{desc}</span>
 					</button>
 				</li>
 			);
@@ -135,6 +140,7 @@ class Game extends React.Component {
 					<Board squares={current.squares} onClick={i => this.handleClick(i)} />
 				</div>
 				<div className='game-info'>
+					<h1 className='main-title'>TIC TAC TOE</h1>
 					<div>{status}</div>
 					<ol>{moves}</ol>
 				</div>

@@ -26,6 +26,7 @@ ul {
 	position: relative;
 	padding-left: 30px;
 	width: 100%;
+
 	li {
 		list-style-type: none;
 		margin-left: -30px;
@@ -33,6 +34,7 @@ ul {
 		display: block;
 		line-height: 30px;
 		width: 100%;
+
 		button {
 			position: relative;
 			cursor: pointer;
@@ -48,23 +50,19 @@ ul {
 			text-align: right;
 			overflow: hidden;
 			line-height: 25px;
+
 			.left {
 				width: 40px;
 				float: left;
 				background-color: #00cdae;
+
 				svg {
 					float: left;
 					font-size: 1.3em;
 					margin-left: 10px;
 					height: 25px;
 				}
-				// &::before {
-				// 	content: '\f004';
-				// 	float: left;
-				// 	margin-left: 10px;
-				// 	font-size: 1.35em;
-				// 	color: red;
-				// }
+
 				.arrow-left {
 					height: 0;
 					width: 0;
@@ -75,7 +73,6 @@ ul {
 					border-top: 25px solid transparent;
 					border-bottom: 25px solid transparent;
 					transition: all 0.15s;
-					//transition-property: left, right;
 				}
 			}
 			.title {
@@ -84,14 +81,15 @@ ul {
 				display: inline;
 				padding: 0 10px;
 			}
+
 			&:hover {
 				.left {
 					svg {
 						margin-left: 15px;
 					}
-					// width: 50px;
 				}
 			}
+
 			@media screen and(max-width: 360px) {
 				width: 100%;
 				font-size: 5vw;
@@ -146,20 +144,24 @@ ul {
 	justify-content: center;
 	align-items: center;
 	column-gap: 1em;
+
 	.game-board {
 		width: 50%;
 		display: flex;
 		justify-content: center;
 	}
+
 	.game-info {
 		width: 50%;
 		margin-left: 20px;
 	}
+
 	@media screen and (max-width: 650px) {
 		flex-direction: column;
 		row-gap: 1em;
 		justify-items: flex-start;
 		align-content: center;
+
 		.game-info {
 			height: 100%;
 			width: 100%;
