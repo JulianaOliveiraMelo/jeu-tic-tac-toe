@@ -105,18 +105,26 @@ class Game extends React.Component {
 			xTurn: step % 2 === 0,
 		});
 	}
+	refreshPage() {
+		window.location.reload();
+	}
 	render() {
 		const history = this.state.history;
 		const current = history[this.state.stepNumber];
 		const winner = calculateWinner(current.squares);
 
 		const moves = history.map((step, move) => {
-			const desc = move ? 'Revenir au tour n°' + move : 'Recommencer la partie';
+			const restart = 'Recommencer la partie';
+			const desc = move ? 'Revenir au tour n°' + move : restart;
 			return (
 				<li key={move}>
 					<button
 						onClick={() => {
-							this.jumpTo(move);
+							if (restart) {
+								this.refreshPage();
+							} else {
+								this.jumpTo(move);
+							}
 						}}>
 						<span className='left'>
 							<FaArrowRight /> <span className='arrow-left'></span>
